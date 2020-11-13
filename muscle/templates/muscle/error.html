@@ -1,0 +1,11 @@
+{% extends "muscle/layout.html" %}
+
+{% block body %}
+
+    <h2>Error</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+{% endblock %}

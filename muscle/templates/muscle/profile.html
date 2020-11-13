@@ -1,0 +1,50 @@
+{% extends "muscle/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="row">
+        <h1>Profile</h1>
+    </div>
+    <div class="row">
+        <h3>{{ profile_user.username }}</h3>
+        {{ profile_user.username|json_script:"profile_username" }}
+    </div>
+    <div class="row">
+        <h6 class="text-muted">Member since: {{ profile_user.date_joined }}</h6>
+    </div>
+    
+    <div class="row">
+        <div class="container-xl">
+            <div class="table-responsive">
+                <div class="table-wrapper">
+                    <div class="table-title">
+                        <div class="col-sm-8"><h2>Workouts</h2></div>
+                    </div>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for workout in workouts %}
+                            <tr>
+                                <td>{{ workout.name }}</td>
+                                <td>{{ workout.description }}</td>
+                                <td>
+                                    <a href="{% url 'workout' workout_id=workout.pk %}">
+                                        <button class="btn btn-primary">Go</button>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "muscle/layout.html" %}
+{% load static %}
+
+{% block body %}
+    {{ workout_id|json_script:"workout_id" }}
+    {{ exercise_list|json_script:"exercise_list" }}
+
+    <div class="row">
+        <div id="workout-container" class="container">
+            <div class="row">
+                <div class="center white">
+                    <h1 id="exercise-phase"></h1>
+                </div>
+            </div>
+            <div class="row">
+                <div id="app" class ="white"></div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-xs-12">
+                    <div id="exercise-card" class="card bg-light mb-3 center">
+                        <div class="card-header justify-content-center d-flex">
+                            <strong>Current Exercise</strong>
+                        </div>
+                        <div class="card-body justify-content-center d-flex">
+                            <h1 id="exercise-name"></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 col-xs-6">
+                    <div class="card bg-light mb-3">
+                        <div class="card-header justify-content-center d-flex">
+                            <strong>Reps</strong>
+                        </div>
+                        <div class="card-body justify-content-center d-flex">
+                            <h1 id="rep-count"></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xs-6">
+                    <div class="card bg-light mb-3">
+                        <div class="card-header justify-content-center d-flex">
+                            <strong>Set</strong>
+                        </div>
+                        <div class="card-body justify-content-center d-flex">
+                            <h1><span id="set-count-current" class="blinking"></span> / <span id="set-count-total"></span></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8 col-xs-8">
+                    <div class="card bg-light mb-3">
+                        <div class="card-header justify-content-center d-flex">
+                            <strong>Next Exercise</strong>
+                        </div>
+                        <div class="card-body justify-content-center d-flex">
+                            <h3 id="next-exercise"></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-xs-4">
+                    <button id="next-button" class="btn btn-warning center">Next <i class="fa fa-arrow-circle-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'muscle/play.js' %}"></script>
+{% endblock %}

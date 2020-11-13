@@ -1,0 +1,89 @@
+body {
+    font-family: sans-serif;
+}
+
+.white {
+    color: white;
+}
+
+#workout-container {
+    display: grid;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#exercise-card {
+    margin-top: 30px;
+}
+
+.center {
+    margin: auto;
+}
+
+.blinking{
+    animation:blinkingText 1.2s infinite;
+}
+@keyframes blinkingText{
+    0%{     opacity: 1;    }
+    50%{    opacity: 0.4; }
+    100%{   opacity: 1;    }
+}
+
+.base-timer {
+position: relative;
+width: 300px;
+height: 300px;
+}
+
+.base-timer__svg {
+transform: scaleX(-1);
+}
+
+.base-timer__circle {
+fill: none;
+stroke: none;
+}
+
+.base-timer__path-elapsed {
+stroke-width: 7px;
+stroke: grey;
+/* stroke: #6b73e3; */
+}
+
+.base-timer__path-remaining {
+stroke-width: 7px;
+stroke-linecap: round;
+transform: rotate(90deg);
+transform-origin: center;
+transition: 1s linear all;
+fill-rule: nonzero;
+stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+/* color: rgb(65, 184, 131); */
+color: #17ff8b;
+}
+
+.base-timer__path-remaining.orange {
+color: orange;
+}
+
+.base-timer__path-remaining.red {
+color: red;
+}
+
+.base-timer__path-remaining.cyan {
+    color: #35ddec;
+}
+
+.base-timer__label {
+position: absolute;
+width: 300px;
+height: 300px;
+top: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 48px;
+}
